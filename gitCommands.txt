@@ -1,0 +1,10 @@
+https://try.github.io/levels/1/challenges/1
+
+git add .
+git status 
+git commit -m "message"
+git push
+
+
+git clone https://github.com/shiva1819/UID11.git
+git pull 

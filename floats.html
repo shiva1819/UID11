@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body{
+			margin: 0px;
+			padding: 0px;
+		}
+		#main{
+			height: 100vh;
+			background-image: url(images/bg2.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			color: #fff;
+		}
+		#header{
+			background-color: rgba(50, 92, 114,0.6);
+		}
+		#logo{
+			margin: 0px;
+			padding: 15px;
+			box-sizing: border-box;
+			width: 250px;
+			color: #000;
+			float: left;
+			/*background-color: #fff;*/
+		}
+		#menu{
+			margin: 0px;
+			/*background-color: lime;*/
+			float: right;
+		}
+		#menu li{
+			width:100px;
+			float: left;
+			padding: 19px;
+			box-sizing: border-box;
+			list-style-type: none; /* none | round | circle | square */
+			/*background-color: #ccc;*/
+			/*margin-left: 5px;*/
+		}
+		#content{
+			background-color: crimson;
+		}
+		.clearfix{
+			clear: both; /* left, right, both*/		
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div id="header">
+			<h2 id="logo"> <span>MYLOGO</span> </h2>
+			<ul id="menu">
+				<li>
+					Home 
+				</li>
+				<li>
+					About 
+				</li>
+				<li>
+					Gallery
+				</li>
+				<li>
+					Contact
+				</li>
+				<div class="clearfix"></div>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+
+		<div id="content">
+			Some text Content....
+		</div>
+		<div id="group">
+			
+		</div>
+		<div id="footer">
+			 
+		</div>
+	</div>
+</body>
+</html>

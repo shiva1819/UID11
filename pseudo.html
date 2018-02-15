@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.link:link{
+			color: red;
+		}
+		.link:hover{
+			color: lime;
+		}
+		.link:active{
+			color: blue;
+		}
+		.link:visited{
+			color: yellow;
+		}
+		#btn{
+			width: 200px;
+			line-height: 50px;
+			text-align: center;
+			border:1px solid;
+		}
+		#btn:hover{
+			background-color: crimson;
+			color: #fff;
+		}
+		ul li:first-child{
+			color: red;
+			font-size: 25px;
+			font-weight: bold;
+			font
+		}
+		ul li:last-child{
+			color: red;
+			font-size: 25px;
+			font-weight: bold;
+			
+		}
+		ul li:nth-child(2n+2){
+			color: blue;
+			font-size: 25px;
+			font-weight: bold;
+		}
+		ul li a{
+			color: #000;
+		}
+		#btn h2:only-child{
+			color: red;
+		}
+		#txt{
+			width: 400px;
+			border:1px solid;
+			margin: auto;
+			position: relative;
+		}
+		#txt:first-line{
+			color: red;
+		}
+		#txt:first-letter{
+			color: blue;
+			font-size: 25px;
+			font-style: italic;
+		}
+		#txt::selection{
+			background-color: lime;
+			color: #000;
+		}
+		#txt:before{
+			content: "This is some demo...";
+			position: absolute;
+			left: -150px;
+			top: 50%;
+
+		}
+		#txt:after{
+			content: "This is some demo...";
+			position: absolute;
+			right: -150px;
+			top: 50%;
+
+		}
+	</style>
+</head>
+<body>
+	<div id="txt">
+		Design by modifying hundreds of ready made designs or start from scratch. Prepare your assets in Photoshop or Sketch and move them online right away. All you need is a web browser.
+	</div>
+	<div id="btn">
+		<h2>DEMO</h2>
+	</div>
+	<a href="#" class="link"> LINK </a>
+	<ul>
+		<li>
+			 Home
+		</li>
+		<li>
+			 Home 
+		</li>
+		<li>
+			 Home 
+		</li>
+		<li>
+			Home 
+		</li>
+
+		<li>
+			 Home 
+		</li>
+		<li>
+			Home
+		</li>
+	</ul>
+</body>
+</html>

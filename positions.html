@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 200px;
+			border:1px solid;
+		}
+		#static{
+
+		}
+		#relative{
+			position: relative;
+			width: 1000px;
+			background-color: lime;
+			height: 300px;
+			right: 10px;
+			top: 10px;
+			z-index:1;
+		}
+		#absolute{
+			position: absolute;
+			left:200px;
+			background-color: red;
+			bottom:200px;
+			z-index: 0;
+		}
+		#fixed{
+			position: fixed;
+			right: 0px;
+			top: 0px;
+			z-index: ;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="static" class="box">
+		static
+	</div>
+	<div id="relative" class="box">
+		
+	</div>
+	<div id="absolute" class="box">
+			absolute
+		</div>
+	
+	<div id="fixed" class="box">
+		fixed
+	</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		/*div span{
+			color: red;
+		}*/
+		div > span{
+			color: red;
+		}
+		div	+ span{
+			color: blue;
+		}
+		div	~ span{
+			color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		Some TEXT.. <br>
+		<span> some Text...</span> <br>
+		<span> The next Text </span>
+	</div>
+	<span> The sibling Text....</span> <br>
+	<span> The sibling Text....</span>
+</body>
+</html>

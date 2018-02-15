@@ -2,10 +2,12 @@
 <html>
 <head>
 	<title></title>
+<link href="https://fonts.googleapis.com/css?family=Cairo:400,700|Josefin+Sans:300,400,700" rel="stylesheet">
 	<style type="text/css">
 		body{
 			margin: 0px;
 			padding: 0px;
+			font-family: 'Josefin Sans', sans-serif;
 		}
 		#main{
 			height: 100vh;
@@ -19,7 +21,9 @@
 		}
 		#logo{
 			margin: 0px;
-			padding: 15px;
+			/*padding: 15px;*/
+			line-height: 50px;
+			text-align: center;
 			box-sizing: border-box;
 			width: 250px;
 			color: #000;
@@ -30,19 +34,47 @@
 			margin: 0px;
 			/*background-color: lime;*/
 			float: right;
+			margin-right: 100px;
 		}
 		#menu li{
 			width:100px;
 			float: left;
-			padding: 19px;
+			text-align: center;
+			/*padding: 19px;*/
+			line-height: 50px;
 			box-sizing: border-box;
 			list-style-type: none; /* none | round | circle | square */
 			/*background-color: #ccc;*/
-			/*margin-left: 5px;*/
+			/*margin-left: 1px;*/
+		}
+		#menu li a{
+			color: #fff;
+			text-decoration: none; /* underline, overline, line-through*/
+			font-size: 20px;
+			/*font-style: italic;*/
+			font-weight: 500; /*100-900, bold, bolder*/
+			font-variant: small-caps;
+			font-family: 'Cairo', sans-serif;
+
+
+
+
 		}
 		#content{
 			background-color: crimson;
 		}
+		#content p{
+			width: 500px;
+			word-spacing: 1px;
+			letter-spacing: 10px;
+			line-height: 30px;
+
+			text-align: justify;
+			text-transform:capitalize; /*lowercase, capitalize*/
+			text-indent:100px;
+		}
+
+
 		.clearfix{
 			clear: both; /* left, right, both*/		
 		}
@@ -54,16 +86,16 @@
 			<h2 id="logo"> <span>MYLOGO</span> </h2>
 			<ul id="menu">
 				<li>
-					Home 
+					<a href="#">Home</a> 
 				</li>
 				<li>
-					About 
+					<a href="#">About</a> 
 				</li>
 				<li>
-					Gallery
+					<a href="#">Gallery</a>
 				</li>
 				<li>
-					Contact
+					<a href="#">Contact</a>
 				</li>
 				<div class="clearfix"></div>
 			</ul>
@@ -71,7 +103,9 @@
 		</div>
 
 		<div id="content">
-			Some text Content....
+			<p>
+				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+			</p>
 		</div>
 		<div id="group">
 			

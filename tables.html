@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#mainTable{
+			width: 1024px;
+			margin:100px auto;
+			/*border: 1px solid;*/
+			border-collapse: collapse;
+		}
+		#mainTable th,td{
+			/*border: 1px solid;*/
+			border-bottom: 1px solid;
+			padding: 5px;
+		}
+		#mainTable td{
+			text-align: center;
+		}
+		#mainTable tr:nth-child(2n+2){
+			background-color: #ccc;
+		}
+		#mainTable tr:hover{
+			background-color: #eee;
+		}
+	</style>
+</head>
+<body>
+	<table id="mainTable">
+		<thead>
+			<tr>
+				<th>
+					SL NO
+				</th>
+				<th>
+					NAME
+				</th>
+				<th>
+					EMAIL
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td rowspan="2">
+					1
+				</td>
+				<td colspan="2">
+					Shiva
+				</td>
+				<!-- <td>
+					shiva@gmail.com
+				</td> -->
+			</tr>
+			<tr>
+				<!-- <td>
+					2
+				</td> -->
+				<td>
+					Shiva
+				</td>
+				<td>
+					shiva@gmail.com
+				</td>
+			</tr>
+			<tr>
+				<td>
+					3
+				</td>
+				<td>
+					Shiva
+				</td>
+				<td>
+					shiva@gmail.com
+				</td>
+			</tr>
+			<tr>
+				<td>
+					4
+				</td>
+				<td>
+					Shiva
+				</td>
+				<td>
+					shiva@gmail.com
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

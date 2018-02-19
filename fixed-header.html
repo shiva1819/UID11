@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<style type="text/css">
+		#header{
+			position: fixed;
+			width: 100%;
+		}
+		#mainContent{
+			padding-top: 70px;
+		}
+		.drop{
+			position: relative;
+		}
+		.subHeader{
+			display: none;
+			width: 300px;
+			position: absolute;
+			/*margin-top: 30px;*/
+		}
+		.subHeader li{
+			display: block;
+			background-color: #ccc;
+			padding: 10px;
+			box-sizing: border-box;
+			text-align: center;
+			border-bottom:1px solid;
+		}
+		.drop:hover .subHeader{
+			/*position: relative;*/
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div id="header" class="bgccc">
+		<div id="logo" class="fL pd10">
+			<h2 class="lineH50"> SliverXis </h2>
+		</div>
+		<div id="menu" class="fR">
+			<ul class="disp-inlinblk mR20 list">
+				<li class="pd5 lineH50 drop" style="width: 100px; text-align: center;">
+					<a href="#"> Home </a>
+					<ul class="subHeader">
+						<li> Home </li>
+						<li> Home </li>
+					</ul>
+				</li>
+				<li class="pd5 lineH50">
+					<a href="#"> About </a>
+				</li>
+				<li class="pd5 lineH50">
+					<a href="#"> Gallery </a>
+				</li>
+				<li class="pd5 lineH50">
+					<a href="#"> Contact </a>
+				</li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div id="mainContent" style="height: 1000px;">
+		Some content Starts Here..............
+	</div>
+</body>	
+</html>

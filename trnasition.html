@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#demo{
+			width: 200px;
+			height: 200px;
+			border: 1px solid #000;
+			/*transition: 5s;*/
+			transition-duration: 3000ms;
+			transition-property:background-color, border-radius, margin-left;
+			/*transition-delay: 1s;*/
+			transition-timing-function:cubic-bezier(.04,.99,0,.79); /*ease, linear, ease-in, ease-out, ease-in-out*/
+			/*opacity: 0;*/
+		}
+		#demo:hover{
+			background-color: lime;
+			margin-left: 100px;
+			border-radius: 50%;
+			/*opacity: 1;*/
+		}
+	</style>
+</head>
+<body>
+	<div id="demo">
+		
+	</div>
+</body>
+</html>

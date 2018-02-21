@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#demo{
+			width: 300px;
+			height: 300px;
+			border:1px solid;
+			/*transition:1s;*/
+			position: relative;
+			padding: 10px;
+			overflow: hidden;
+			
+		}
+		#demo img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			transition: 400ms;
+			opacity: 0.6;
+		}
+		#demo:hover img{
+			transform: scale(1.5,1.5);
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div id="demo">
+		<img src="images/bg1.jpg" id="imgDemo">
+	</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+#menu{
+	display: none;
+}
+#menu{
+	position: relative;
+	width: 100%;
+}
+#menu ul{
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	background-color: #8b5a18cc;
+
+}
+#menu ul li{
+	display: block;
+	width: 100%;
+	line-height: 50px;
+	text-align: center;
+}
+.fR{
+	display: block !important;
+}
+.fR:hover + #menu{
+	display: block;
+}

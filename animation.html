@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#box1{
+			width: 100px;
+			height: 100px;
+			background-color: crimson;
+			border-radius: 50%;
+			border:2px solid lime;
+			animation-name: demo;
+			animation-duration: 3s;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;
+			animation-delay: 1s;
+			animation-timing-function: ease-out;
+		}
+		@keyframes demo{
+			0%{ margin-left: 10px; margin-top: 10px; transform: scale(1.1,1.1); }
+			25%{ margin-left: 50px; margin-top: 50px; transform: scale(1.5,1.5); }
+			50%{ margin-left: 150px; margin-top: 100px; transform: scale(1,1); }
+			75%{ margin-left: 200px; margin-top: 150px; transform: scale(1.2,1.2); }
+			100%{ margin-left: 300px; margin-top:200px;transform: scale(1.5,1.5);}
+		}
+
+		#box1:hover{
+			animation-play-state: paused;
+		}
+	</style>
+</head>
+<body>
+	<div id="box1">
+		
+	</div>
+</body>
+</html>

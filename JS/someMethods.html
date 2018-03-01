@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		// indexOf(), lastIndexOf(), search(), length, substr(start, length), substring(start, end(increment from start)), slice(start, end(increment from start)), replace, 
+		var str = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+		// console.log(str.length) // number
+		// console.log(str.indexOf('Ipsummm'));
+
+		var url = "https://es.lipsum.com/";
+
+		if(url.search('id') > 1 ){
+			alert('you are in indonesia site...');
+		}else{
+			url = url.replace('es', 'id');
+
+			// alert('you are in espn site...');
+			// console.log(url);
+
+		}
+		var sim = str.indexOf('simply');
+		var tst = str.substr(sim,6);
+		// console.log(tst);
+
+
+		// array 
+
+		var arr = [];
+
+		arr.push(12);
+		arr.push(13);
+
+		console.log(arr);
+
+		arr.pop();
+
+		arr.unshift(10);
+		arr.unshift(00);
+
+		arr.shift();
+
+		arr[2] = 13;
+		arr[4] = 15;
+
+		delete arr[4] // unudefined 
+
+		console.log(arr);
+
+		//  to remove a value we should use splice();
+
+		// arr.splice(start, length);
+		// arr.slice(start, end); // end ++;
+
+
+	// number Methods.
+
+	// parseInt(), parseFloat(); 
+
+	console.log(parseFloat('12.999')); // 
+
+	// Math.round();
+
+	console.log(Math.round(1.5)); // 2
+	console.log(Math.ceil(1.01)); // 
+	console.log(Math.floor(1.999999)); // 
+
+	console.log(Math.ceil(Math.random() * 10));
+
+
+	</script>
+</body>
+</html>

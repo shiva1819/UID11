@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<div class="one">
+		This is div element 0
+	</div>
+	<p>
+		asdasd
+	</p>
+	<div id="one">
+		This is div element 1
+	</div>
+	<p>
+		asdasd
+	</p>
+	<ul>
+		sdasdasd
+	</ul>
+	<div id="two" class="one" onclick="demo()">
+		This is div element 2
+	</div>
+	<button onclick="demo()"> shift </button>
+	<script type="text/javascript">
+		// id, class, elementName
+
+		// var One = document.getElementById('one');
+		// var One = document.getElementsByClassName('one')[1
+			var One = document.getElementsByTagName('div')[1]
+		// innerText, innerHTML
+			
+
+		function demo(){
+			if(One.innerText == "This is div element 1"){
+				One.innerHTML = "<h1> The text is changed </h1>";
+			}else{
+				One.innerText = "This is div element 1";
+			}
+			// if()
+		}
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function pen(color, price, model){
+			this.color = color;	
+			this.price = price;
+			this.model = model;
+			// this.penInfo = 
+		};
+
+		pen.prototype.penInfo = function(){
+				return "This is "+ this.model +" pen and it's price is about "+ this.price + '$';
+			}		
+
+		// pen.prototype.name = 'parker';
+
+		var parker = new pen('blue', '300', 'par123');
+		console.log(parker.name);
+		
+		// pen.prototype.name = 'renlods';
+		var renlods = new pen('black', '300', 'rel123');
+
+		console.log(parker.penInfo());
+	</script>
+</body>
+</html>

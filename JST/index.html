@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.header{
+			width: 200px;
+			line-height: 50px;
+			background-color: #ccc;
+			color: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div id="main">
+		
+	</div>
+	<button type="button" id="btn"> click me !</button>
+
+	<script type="text/javascript">
+		var Btn = document.getElementById('btn');
+
+
+		Btn.onclick = function(){
+			var h2 = document.createElement('h2');
+				h2.innerText = "This is Header from JS";
+
+
+				// adding Attributes
+					h2.className = "header";
+					h2.id = "one";
+					// a.href = "index.html";
+					// img.src = "";
+				// setAttribute('attrName', 'attrValue');
+					h2.setAttribute('data-link', "index.html");
+					h2.removeAttribute('id');
+
+				// parent.appendChild('child');
+
+				var Body = document.getElementsByTagName('body')[0];
+				var Main = document.getElementById('main');
+				// Main.appendChild(h2);
+				// Main.removeChild(h2);
+				// insertBefore();
+
+				Body.insertBefore(h2, Main);
+			console.log(h2);
+		}
+
+	</script>
+</body>
+</html>

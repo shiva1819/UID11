@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+		}
+		#btn{
+			width: 200px;
+			line-height: 50px;
+			background: lime;
+			outline: none;
+			border:none;
+			position: absolute;
+			top: 0px;
+			left:40%;
+			box-shadow: 0px 0px 3px 1px #000;
+		}
+		#wrap{
+			width: 40%;
+			margin: 100px auto;
+			box-shadow: 0px 0px 4px 2px #000;
+		}
+		#headR{
+			width: 100%;
+			line-height: 50px;
+			text-align: center;
+			background-color: #ccc;
+		}
+		#art{
+			padding: 20px;
+			box-sizing: border-box;
+		}
+		#art div{
+			margin-bottom: 10px;
+			box-sizing: border-box;
+		}
+		#art div input{
+			width: 100%;
+			line-height: 40px;
+		}
+		footer{
+			width: 100%;
+
+		}
+		footer h3{
+			float: left;
+			width: 48%;
+			background-color: #ccc;
+			margin-left: 4px;
+			line-height: 40px;
+			text-align: center;
+			margin-bottom: 20px;
+			box-sizing: border-box;
+			color: #fff;
+		}
+		footer h3{
+			background-color: lime;
+		}
+		footer h3:first-child{
+			background-color: crimson;
+		}
+		.clear{
+			clear: both;
+		}
+	</style>
+</head>
+<body>
+	<button type="button" id="btn"> Create Contact </button>
+
+	<main id="wrap">
+		<header id="headR">
+			<h2> Create Contact </h2>
+		</header>
+		<article id="art">
+			<div>
+				<label for="name"> Name </label>
+				<input type="text" name="name" id="name">
+			</div>
+			<div>
+				<label for="contact"> Contact </label>
+				<input type="text" name="contact" id="contact">
+			</div>
+			<div>
+				<label for="email"> Email </label>
+				<input type="text" name="email" id="email">
+			</div>
+			<div>
+				<label for="company"> Company </label>
+				<input type="text" name="company" id="company">
+			</div>
+		</article>
+		<footer>
+			<h3 id="Cancel"> Cancel </h3>
+			<h3 id="Save"> Save </h3>
+			<div class="clear"></div>
+		</footer>
+	</main>
+	<table>
+		<thead>
+			<tr>
+				<th>
+					Name 
+				</th>
+				<th>
+					Contact
+				</th>
+				<th>
+					Email
+				</th>
+				<th>
+					Company
+				</th>
+				<th>
+					Edit/Delete
+				</th>
+			</tr>
+			<tbody id="contactInfo">
+			
+			</tbody>
+		</thead>
+
+	</table>
+	<script type="text/javascript">
+		var Btn = document.getElementById('btn');
+		var Wrap = document.getElementById('wrap');
+
+		var Name = document.getElementById('name');
+		var Contact = document.getElementById('contact');
+		var Email = document.getElementById('email');
+		var Company = document.getElementById('company');
+
+		var Save = document.getElementById('Save');
+		var Cancel = document.getElementById('Cancel');
+
+		var contactInfo = document.getElementById('contactInfo');
+
+
+
+		// ele.addEventListener('eventName', callback, capturing/bubbling);
+
+			// Wrap.style.display = "none";
+
+			Btn.addEventListener('click', demo, false);
+
+			Save.addEventListener('click', ContacDetails);	
+
+			function ContacDetails(){
+			console.log(Name.value + "--" + Contact.value + "--" + Email.value + "--" + Company.value );
+			}
+
+			function demo(){
+
+				// Wrap.style.display = "block";
+
+			}
+
+
+
+
+
+	</script>
+</body>
+</html>

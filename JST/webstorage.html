@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		// local Storage, Session Storage... 
+
+
+		// localStorage.setItem('Name', "Shiva");
+		// localStorage.setItem('data', "[123,123,123]");
+		localStorage.setItem('Obj', JSON.stringify({a:123,b:123,c:123}));
+		var js1 = localStorage.getItem('Obj');
+		js1 = JSON.parse(js1);
+		console.log(js1.a);
+		// removeItem;
+		localStorage.clear();
+
+		// sessionStorage.setItem('name', "SHiva");		
+
+	</script>	
+</body>
+</html>

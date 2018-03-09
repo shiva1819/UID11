@@ -214,7 +214,7 @@
 				bindInfo:function(){
 					
 					// TR,NameTD, COntactTD, EmailTD, CompanyTD.
-
+					
 					for(var i = 0; i < localData.length; i++){
 					var TR = document.createElement('tr');
 					
@@ -239,7 +239,6 @@
 					BtnTD.appendChild(Edit)
 					BtnTD.appendChild(Delete);	
 
-
 					TR.appendChild(NameTD);
 					TR.appendChild(ContactTD);
 					TR.appendChild(EmailTD);
@@ -247,39 +246,19 @@
 					TR.appendChild(BtnTD);
 					console.log(TR);
 					contactInfo.appendChild(TR);
-				}
+
 					Edit.onclick = function(){
-						/*var eName = this.parentNode.parentNode.childNodes[0].innerText;
-						var eContact = this.parentNode.parentNode.childNodes[1].innerText;
-						var eEmail = this.parentNode.parentNode.childNodes[2].innerText;
-						var eCmp = this.parentNode.parentNode.childNodes[3].innerText;*/
-
-						/*Name.value = eName;
-						Contact.value = eContact;
-						Email.value = eEmail;
-						Company.value = eCmp;
-						*/
-						console.log(this.parentNode.parentNode.parentNode.children.length);
-
+						// console.log(localData[0]);	
 						
-						var editVal = JSON.parse(localStorage.getItem('arr'));
-
-						Save.style.display = "none";
-						Update.style.display = "block";
-						console.log();
+					}
+				}
+					Update.onclick = function(){
+						
+						// localStorage.setItem(localData[0])
 					}
 
-					Update.onclick = function(){
-						NameVal = Name.value;
-						ContactVal = Contact.value;
-						Emailval = Email.value ;
-						CompanyVal = Company.value ;
-
-					var Obj = {"name":NameVal, "Contact":ContactVal,"Email":Emailval,"Company":CompanyVal};	
-					arr.push(Obj);
-					localStorage.setItem('arr', JSON.stringify(arr));
-					// bind.bindInfo();
-
+					Delete.onclick = function(){
+						// localStorage.removeItem(localData[0]);
 					}
 				}
 			}

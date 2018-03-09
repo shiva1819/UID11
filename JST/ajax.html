@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		// ajax
+
+		var url = "https://jsonplaceholder.typicode.com/users";
+        var hrequest = new XMLHttpRequest();
+            console.log(hrequest);
+        hrequest.onreadystatechange = function(){
+
+            if(this.readyState == 4 && this.status == 200){	
+//                console.log();
+                var data = this.responseText;
+                
+                console.log(JSON.parse(data)[0].address);
+            }
+        }
+        
+        hrequest.open('GET', url, false);
+        hrequest.send();
+        
+        
+		
+	</script>
+</body>
+</html>

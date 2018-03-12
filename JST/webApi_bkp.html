@@ -1,51 +1,60 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title></title>
 	<style type="text/css">
-		*{
+		* {
 			margin: 0px;
 			padding: 0px;
 		}
-		#btn{
+
+		#btn {
 			width: 200px;
 			line-height: 50px;
 			background: lime;
 			outline: none;
-			border:none;
+			border: none;
 			position: absolute;
 			top: 0px;
-			left:40%;
+			left: 40%;
 			box-shadow: 0px 0px 3px 1px #000;
 		}
-		#wrap{
+
+		#wrap {
 			width: 40%;
 			margin: 100px auto;
 			box-shadow: 0px 0px 4px 2px #000;
 		}
-		#headR{
+
+		#headR {
 			width: 100%;
 			line-height: 50px;
 			text-align: center;
 			background-color: #ccc;
 		}
-		#art{
+
+		#art {
 			padding: 20px;
 			box-sizing: border-box;
 		}
-		#art div{
+
+		#art div {
 			margin-bottom: 10px;
 			box-sizing: border-box;
 		}
-		#art div input{
+
+		#art div input {
 			width: 100%;
 			line-height: 40px;
 		}
-		footer{
+
+		footer {
 			width: 100%;
 
 		}
-		footer h3{
+
+		footer h3 {
 			float: left;
 			width: 48%;
 			background-color: #ccc;
@@ -56,45 +65,56 @@
 			box-sizing: border-box;
 			color: #fff;
 		}
-		footer h3.sbtn{
+
+		footer h3.sbtn {
 			background-color: lime;
 		}
-		footer h3:first-child{
+
+		footer h3:first-child {
 			background-color: crimson;
 		}
-		table{
-			width:1024px;
-			margin: 50px auto; 
-			padding:0 0 50px 0; 
+
+		table {
+			width: 1024px;
+			margin: 50px auto;
+			padding: 0 0 50px 0;
 			text-align: center;
 		}
-		table,tr,td,th{
-			border-bottom:1px solid;
+
+		table,
+		tr,
+		td,
+		th {
+			border-bottom: 1px solid;
 			border-collapse: collapse;
 			padding: 5px;
 			box-sizing: border-box;
 		}
-		.edit{
+
+		.edit {
 			width: 50px;
 			line-height: 30px;
 			text-align: center;
 			border: none;
 			outline: none;
-			background-color:green;
+			background-color: green;
 		}
-		.del{
+
+		.del {
 			width: 50px;
 			line-height: 30px;
 			text-align: center;
 			border: none;
 			outline: none;
-			background-color:red;
+			background-color: red;
 		}
-		.clear{
+
+		.clear {
 			clear: both;
 		}
 	</style>
 </head>
+
 <body>
 	<button type="button" id="btn"> Create Contact </button>
 
@@ -109,7 +129,7 @@
 			</div>
 			<div>
 				<label for="contact"> Contact </label>
-				<input type="text" name="contact" id="contact">
+				<input type="text" name="contact" id="contact" maxlength="10">
 			</div>
 			<div>
 				<label for="email"> Email </label>
@@ -131,7 +151,7 @@
 		<thead>
 			<tr>
 				<th>
-					Name 
+					Name
 				</th>
 				<th>
 					Contact
@@ -147,7 +167,7 @@
 				</th>
 			</tr>
 			<tbody id="contactInfo">
-			
+
 			</tbody>
 		</thead>
 
@@ -170,104 +190,173 @@
 
 		Update.style.display = "none";
 
+		Wrap.style.display = "none";
 
 		var arr = JSON.parse(localStorage.getItem('arr')) || [];
-		var localData = JSON.parse(localStorage.getItem('arr'));
+		var charPat = /^[a-zA-Z\s]+$/i;
+		var numPat = /^[0-9]+$/;
+		var EmailPat = /^([a-zA-Z\.-]+)@([a-zA-Z]+)\.([a-zA-Z]{2,5})(\.[a-zA-Z]{2,5})?$/;
+		
 		var bind = {
-			ContacDetails:function(){
+			ContacDetails: function () {
 
 				// if(Name.value == "" || Contact.value == "" || Email.value == "" || Company.value == ""){
 				// 	alert('Please Enter full Details...');
 				// }
-
-				if(Name.value == ""){
+				// debugger;
+				console.log(charPat.test(Name.value));
+				if (Name.value == "" || !charPat.test(Name.value)) {
 					alert('Please Enter Your Name !');
 					return false;
-				}else if(Contact.value == ""){
+				} else if (Contact.value == "" || !numPat.test(Contact.value)) {
 					alert('Please Enter Your Contact No !');
 					return false;
-				}else if(Email.value == ""){
+				} else if (Email.value == "" || !EmailPat.test(Email.value)) {
 					alert('Please Enter Your Email Id !');
 					return false;
-				}else if(Company.value == ""){
+				} else if (Company.value == "" || !charPat.test(Company.value)) {
 					alert('Please Enter Your Company Name !');
 					return false;
 				}
-				else{
+				else {
 
 					var NameVal = Name.value;
-					var ContactVal =  Contact.value;
+					var ContactVal = Contact.value;
 					var Emailval = Email.value;
 					var CompanyVal = Company.value;
 
-					var Obj = {"name":NameVal, "Contact":ContactVal,"Email":Emailval,"Company":CompanyVal};	
+					var Obj = { "name": NameVal, "Contact": ContactVal, "Email": Emailval, "Company": CompanyVal };
 					arr.push(Obj);
 
 					localStorage.setItem('arr', JSON.stringify(arr));
-					
-					// console.log(JSON.parse(arrData));
-					contactInfo.innerHTML = "";
 					bind.bindInfo();
-
+					// console.log(JSON.parse(arrData));
+					
+							Name.value = "";
+							Contact.value = "";
+							Email.value = "";
+							Company.value = "";
+					
 				}
+
 			},
-				bindInfo:function(){
-					
-					// TR,NameTD, COntactTD, EmailTD, CompanyTD.
-					
-					for(var i = 0; i < localData.length; i++){
+			bindInfo: function () {
+			var localData = JSON.parse(localStorage.getItem('arr'));
+				// TR,NameTD, COntactTD, EmailTD, CompanyTD.
+				contactInfo.innerHTML = "";
+				if(localData == null || localData.length == 0){
+					contactInfo.innerHTML = "<tr><td colspan = '5'> No Data found </tr></td>"
+				}else{
+				for (var i = 0; i < localData.length; i++) {
 					var TR = document.createElement('tr');
-					
+					TR.setAttribute('data-tr', i);
+
 					var NameTD = document.createElement('td');
-						NameTD.innerText = localData[i].name;
+					NameTD.innerText = localData[i].name;
 					var ContactTD = document.createElement('td');
-						ContactTD.innerText = localData[i].Contact;
+					ContactTD.innerText = localData[i].Contact;
 					var EmailTD = document.createElement('td');
-						EmailTD.innerText = localData[i].Email;
+					EmailTD.innerText = localData[i].Email;
 					var CompanyTD = document.createElement('td');
-						CompanyTD.innerText = localData[i].Company;
-					
+					CompanyTD.innerText = localData[i].Company;
+
 					var BtnTD = document.createElement('td');
 
 					var Edit = document.createElement('button');
-						Edit.innerText = "Edit";
-						Edit.className = "edit";
+					Edit.innerText = "Edit";
+					Edit.className = "edit";
 					var Delete = document.createElement('button');
-						Delete.innerText = 'Delete';
-						Delete.className = "del";
+					Delete.innerText = 'Delete';
+					Delete.className = "del";
 
 					BtnTD.appendChild(Edit)
-					BtnTD.appendChild(Delete);	
+					BtnTD.appendChild(Delete);
 
 					TR.appendChild(NameTD);
 					TR.appendChild(ContactTD);
 					TR.appendChild(EmailTD);
 					TR.appendChild(CompanyTD);
 					TR.appendChild(BtnTD);
+
 					console.log(TR);
 					contactInfo.appendChild(TR);
 
-					Edit.onclick = function(){
-						// console.log(localData[0]);	
-						
-					}
-				}
-					Update.onclick = function(){
-						
-						// localStorage.setItem(localData[0])
-					}
+					var ld, selec;
+					Edit.onclick = function () {
+						Wrap.style.display = "block";
+						selec = this.parentNode.parentNode.getAttribute('data-tr');
+						ld = localData[selec];
+						console.log(localData[selec]);
+						Name.value = ld.name;
+						Contact.value = ld.Contact;
+						Email.value = ld.Email;
+						Company.value = ld.Company;
 
-					Delete.onclick = function(){
-						// localStorage.removeItem(localData[0]);
-					}
+						Save.style.display = "none";
+						Update.style.display = "block";
+
+
+
+
+						Update.onclick = function () {
+
+							console.log(selec);
+
+							// validate all form fields...
+
+
+							var NameVal = Name.value;
+							var ContactVal = Contact.value;
+							var Emailval = Email.value;
+							var CompanyVal = Company.value;
+
+							var Obj = { "name": NameVal, "Contact": ContactVal, "Email": Emailval, "Company": CompanyVal };
+							localData[selec] = Obj
+							// console.log(localData[0] = Obj);
+
+							localStorage.setItem('arr', JSON.stringify(localData));
+							bind.bindInfo();
+
+
+							Name.value = "";
+							Contact.value = "";
+							Email.value = "";
+							Company.value = "";
+						Save.style.display = "block";
+						Update.style.display = "none";
+
+
+						}
+						}
+
+
+						Delete.onclick = function () {							
+							delSelc = this.parentNode.parentNode.getAttribute('data-tr');
+							demp = localData					
+							var d = demp.splice(delSelc,1)
+							console.log(demp);
+							localStorage.setItem('arr', JSON.stringify(demp)); 
+							bind.bindInfo();
+						}
+					
 				}
+				}
+			},
+			view:function(){
+				Wrap.style.display = "block";
+			},
+			cancel:function(){
+				Wrap.style.display = "none";
 			}
+		}
 
-			Btn.addEventListener('click', bind.demo, false);
-			Save.addEventListener('click', bind.ContacDetails);	
-			bind.bindInfo();
-			
+		bind.bindInfo();
 
+		Btn.addEventListener('click', bind.view, false); // hide and show Menu...
+		Cancel.addEventListener('click', bind.cancel);
+		Save.onclick = function(){bind.ContacDetails()}; // Save
+		
 	</script>
 </body>
+
 </html>

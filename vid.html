@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0px;
+		}
+		body{
+			/*overflow: hidden;*/
+		}
+		video{
+			position: fixed;
+			left: 0;
+			top: 0;
+			opacity: 0.3;
+			z-index: -2222;
+		}
+		#demo{
+			height: 100vh;
+			background-color: rgba(250,125,125,0.5);
+		}
+		h2{
+			width: 40%;
+			margin: auto;
+			padding-top: 200px;
+		}
+		button{
+			position: fixed;
+			bottom: 50px;
+			left: 50px;
+		}
+	</style>
+</head>
+<body>	
+	<video muted autoplay height="780" loop id="vid">
+		<source src="vid.mp4" type="video/mp4">
+		<source src="vid.ogg" type="video/ogg">
+		Your Browser is not support video element...
+	</video>
+	<button id="btn"> play </button>
+	<div id="demo">
+		<div id="content">
+			<h2> This is SOme Header </h2>
+		</div>
+	</div>
+	<audio muted loop id="aud">
+		<source src="aud.mp3" type="audio/mp4">
+		<source src="aud.ogg" type="audio/ogg">
+		Your Browser is not support video element...
+	</audio>
+	<script type="text/javascript">
+		var vid = document.getElementById('vid');
+		var aud = document.getElementById('aud');
+
+		var btn = document.getElementById('btn');
+
+		btn.addEventListener('click', function(){
+			if(vid.paused){
+				vid.play();
+				this.innerText = 'pause';
+			}else{
+				vid.pause();
+				this.innerText = 'play';
+			}
+		});
+
+
+	</script>
+</body>
+</html>

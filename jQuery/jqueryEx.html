@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0px;
+		}
+		ul{
+			width:1024px;
+			margin: auto;
+		}
+		ul li{
+			width:300px;
+			display: inline-block;
+		}
+		ul li img{
+			width:100%;
+		}
+		#disp{
+			width:100%;
+			height: 100vh;
+			position: absolute;
+			background: lime;
+			display: none;
+		}
+		#disp img{
+			width:100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="disp">
+		
+	</div>
+	<ul>
+		<li>
+			<img src="img1.jpg">
+		</li>
+		<li>
+			<img src="img2.jpg">
+		</li>
+		<li>
+			<img src="img3.jpg">
+		</li>
+		<li>
+			<img src="img1.jpg">
+		</li>
+		<li>
+			<img src="img2.jpg">
+		</li>
+		<li>
+			<img src="img3.jpg">
+		</li>
+		<li>
+			<img src="img1.jpg">
+		</li>
+		<li>
+			<img src="img2.jpg">
+		</li>
+		<li>
+			<img src="img3.jpg">
+		</li>
+	</ul>
+	<script type="text/javascript">
+		$('ul li img').click(function(){
+			// create img, append src, append it to #disp;
+			console.log($(this).attr('src'));
+			$('#disp').html('<img src='+ $(this).attr('src') +'>');
+			$('#disp').slideDown(2000);
+		});
+
+		$('#disp').click(function(){
+			$(this).slideUp(2000);
+		});
+	</script>
+</body>
+</html>

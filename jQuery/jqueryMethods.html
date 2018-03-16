@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<style type="text/css">
+		.one{
+			margin-left: 100px;
+		}
+		.two{
+			margin-top: 100px;
+		}
+		.bgclr{
+			background-color: lime !important;
+		}
+	</style>
+</head>
+<body>
+	<div id="one">
+		Some Text..
+	</div>
+	<input type="text" name="name" id="name">
+	<script type="text/javascript">
+		
+		$('body').ready(function(e){
+			// alert(e);
+			$('#one').click(function(){
+				$(this).toggleClass('bgclr')
+			});
+
+		});
+
+		// no $-icon 
+		// var jq = $.noConflict();
+		
+	// css 
+		// $('#one').css('background','#ccc');
+		$('#one').css({
+			width:'200px',
+			height:'200px',
+			background:"#ccc",
+			color:'#fff'
+		});
+
+	// class,
+	$('#one').addClass('one two');
+	$('#one').removeClass('two');
+	$('#one').removeAttr('class');
+	// $('#one').attr('class', 'one two');
+	$('#one').prop('class', 'one two');
+	$('#one').toggleClass('bgclr')
+
+
+	$('input').keyup(function(e){
+		// console.log($(this).val('Shiva'));
+		console.log(e.keyCode);
+		if(e.keyCode == 13){
+			console.log($(this).val());
+		// }
+		}
+	})
+
+	// classList 
+
+		/*------------- adding Methods --------------*/
+			// .append(), prepend(), after(), before(),
+			// $('#one').append('<h2> This is Demo....</h2>');
+			$('#one').prepend('<h2> This is Demo....</h2>');
+
+		/*--------------removeMethods-----------*/
+			// .remove(), .empty(), detach(),
+			$('#one h2').empty();
+
+		// css
+
+		// selecting Elements
+
+	</script>
+</body>
+</html>

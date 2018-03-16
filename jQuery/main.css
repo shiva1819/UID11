@@ -1,0 +1,43 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+#main{
+	height: 100vh;
+	background:url(../images/bg4.jpg) no-repeat;
+	background-size: cover;
+	padding-top: 100px;
+}
+#register{
+	width:400px;
+	margin-left:150px; 
+	/*border:1px solid;*/
+	box-shadow: 0px 0px 5px 0px #000;
+	padding: 20px;
+	box-sizing: border-box;
+	min-height: 300px;
+	padding-top: 50px;
+}
+#register input{
+	width:100%;
+	line-height: 30px;
+	font-size: 18px;
+}
+#register p label{
+	font-size: 18px;
+	line-height: 25px;
+}
+button{
+	margin-top: 10px;
+	width:100px;
+	text-align: center;
+	background-color: lime;
+	line-height: 30px;
+	border: none;
+}
+.btnWrap{
+	text-align: center;
+}
+#signupWrap{
+	/*display: none;*/
+}

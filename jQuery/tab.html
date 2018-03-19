@@ -3,34 +3,106 @@
 <head>
 	<title></title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding:0px;
+		}
+		#main{
+			width:500px;
+			margin:50px auto;
+			background-color: #aaa;
+		}
+		#tab{
+			width:100%;
+			background:#ccc;
+		}
+		#tab li{
+			display:inline-block;
+			width:100px;
+			line-height: 40px;
+			text-align: center;
+			background-color: #bbb;
+		}
+		.box{
+			height: 300px;
+			display: none;
+		}
+		ul#tab > li.active{
+			background-color: crimson !important;
+			color: #fff !important;
+		}
+	</style>
 </head>
 <body>
-
-	<ul>
-		<li>
+	<main id="main">
+	<ul id="tab">
+		<li class="active" data-id="One">
 			One 
 		</li>
-		<li>
+		<li data-id="Two">
 			Two 
 		</li>
-		<li>
+		<li data-id="Three">
 			Three
+		</li>
+		<li data-id="Four">
+			Four
 		</li>
 	</ul>
 
-	<div id="One">
+	<div id="One" class="box active">
 		some Text one
 	</div>
-	<div id="Two">
+	<div id="Two" class="box" style="background-color: lime">
 		some Text Two
 	</div>
-	<div id="Three">
-		some Text Three
+	<div id="Three" class="box" style="background-color: crimson">
+		some Text Four
 	</div>
-
-
+	<div id="Four" class="box" style="background-color: brown">
+		some Text Four
+	</div>
+</main>
 	<script type="text/javascript">
-		
+		$(document).ready(function(){
+			$('ul#tab li').click(function(){
+				$('ul#tab li').removeClass('active');
+				$(this).addClass('active');
+
+				// debugger
+
+				/*if($(this).text().trim() == "One"){
+					$('.box').slideUp();
+					$('#One').slideDown();
+				}else if($(this).text().trim() == "Two"){
+					$('.box').slideUp();
+					$('#Two').slideDown();
+				}else if($(this).text().trim() == "Three"){
+					$('.box').slideUp();
+					$('#Three').slideDown();
+				}else{
+					$('.box').slideUp();
+					$('#Four').slideDown();
+				}
+
+*/
+				if($(this).attr('data-id') == "One"){
+					$('.box').slideUp();
+					$('#One').slideDown();
+				}else if($(this).attr('data-id') == "Two"){
+					$('.box').slideUp();
+					$('#Two').slideDown();
+				}else if($(this).attr('data-id') == "Three"){
+					$('.box').slideUp();
+					$('#Three').slideDown();
+				}else{
+					$('.box').slideUp();
+					$('#Four').slideDown();
+				}
+
+			});
+		});
 	</script>
 </body>
 </html>

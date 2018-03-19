@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<style type="text/css">
+		ul li{
+			display: inline-block;
+			width:30%;
+			min-height: 200px;
+			background-color: #aaa;
+			color: #fff;
+			margin-left: 10px;
+			margin-top: 10px;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+    
+    <ul id="bindData">
+    	<li>
+    		<div>
+    			<h3> Name : <span class="smallName"> </span></h3>
+    			<p> username : <span class="username"> </span></p>
+    			<p> Email: <span class="email"></span></p>
+    		</div>
+    	</li>
+    </ul>
+    
+	<script type="text/javascript">
+		/*$.ajax({
+			method:"GET",
+			url:"https://jsonplaceholder.typicode.com/users"
+		}).then(function(data){
+			console.log(data);
+		}, function(err){
+			console.log(err.statusText);
+		})*/
+        
+        
+        
+        $.ajax({
+            method:"GET",
+//            async:true,
+//            data:'{name:"Shiva"}'
+			url:"https://jsonplaceholder.typicode.com/users",
+            success:function(data){
+                console.log(data)
+                var info = "";
+
+		for (var i = 0; i < data.length; i++) {
+		       info += '<li><div><h3> Name : <span class="smallName">'+ data[i].name +'</span></h3>';
+    			info += '<p> username : <span class="username">'+ data[i].username +'</span></p>';
+    			info += '<p> Email: <span class="email">'+ data[i].email +'</span></p></div></li>';
+		}                
+    	$('#bindData').html(info);		
+                
+                
+            },
+            error:function(err){
+                console.log(err);
+            }
+        })
+        
+	</script>
+</body>
+</html>

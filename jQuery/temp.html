@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			background-color: #aaa;
+		}
+		ul{
+			width:100%;
+			background-color: #ccc;
+		}
+		ul li{
+			display: inline-block;
+			line-height: 50px;
+			width:100px;
+			text-align: center;
+		}
+		.h1{
+			color: red;
+		}
+		.slider{
+			width:1024px;
+			margin: 100px auto;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<a href="#home"> Home </a>	
+		</li>
+		<li>
+			<a href="#about"> About </a>	
+		</li>
+		<li>
+			<a href="#contact"> Contact </a>	
+		</li>
+	</ul>
+    <article id="present">
+    
+    </article> 
+	<script type="text/javascript">
+        
+        $('#present').load('home.html');
+//		$(document).ready(function(){
+            
+            $('ul li a').click(function(){
+                var link = $(this).attr('href').split('#')[1] + '.html';
+//                console.log(link);
+                $.ajax({
+                    method:"GET",
+                    url:link,
+                    success:function(data){
+//                        debugger
+                        console.log(data);
+                        $('#present').html(data);
+                    },
+                    error:function(err){
+                        console.log('error');
+                    }
+                });
+                
+            });
+        $(document).ready(function(){
+/*            $('.slider').slick({
+              infinite: true,
+              slidesToShow: 3,
+              slidesToScroll: 3
+            });
+
+*/            $('.slider').slick();
+
+        });        
+            
+//        });
+	</script>	
+</body>
+</html>

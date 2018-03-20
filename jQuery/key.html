@@ -17,7 +17,7 @@
 	</style>
 </head>
 <body>
-    
+    <input type="text" name="name" id="name">
     <ul id="bindData">
     	<li>
     		<div>
@@ -39,6 +39,13 @@
 		})*/
         
         
+        $('#name').keyup(function(){
+//            alert();
+        	var value = $(this).val().toLowerCase();
+        	$('ul li').filter(function(){
+        		$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        	});
+        });
         
         $.ajax({
             method:"GET",

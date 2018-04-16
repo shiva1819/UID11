@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="">
+
+	<!--  One Way DataBinding
+		  Two Way DataBinding.
+		  ( V-View  <______M- Model ____> C-controller )
+		
+		-controller (constructor...)
+		-Services,
+		-Filters
+		-Directives.
+		-SPA(Routing)
+		-DI.
+	 -->
+
+	 <!--  biniding Expressions -->
+
+	 <div ng-init="demo='red'">
+	 	
+	 	<input type="text" name="name" ng-model="demo">
+
+		 <p style="color:{{ demo }}"> The font color is {{ demo }}</p>
+		 <h1 ng-bind="demo"></h1>
+	</div>
+
+
+
+	<!--  ng-app, ng-bind, ng-model, binding Expressions, -->
+
+	<script type="text/javascript">
+		
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+
+	<article ng-controller="demoCtrl">
+		<input type="text" name="name" ng-model="abc">
+		<p>{{ abc }}</p>
+
+
+
+		<ul>
+			<li ng-repeat="c in colors">
+				{{ c }}
+			</li>
+		</ul>
+
+		
+	</article>
+
+	<article ng-controller="ctrl">
+		<input type="text" name="name" ng-model="abc">
+		<p>{{ abc }}</p>
+	</article>
+
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+		
+
+		app.controller('demoCtrl', ['$scope', function($scope){
+			$scope.abc = 10;
+			$scope.colors = ['red', 'blue', 'green'];
+		}]);
+
+
+		app.controller('ctrl', ['$scope', function($scope){
+			$scope.abc = 20;
+		}]);
+
+
+		angular.bootstrap(document, ['myApp']);
+	</script>
+</body>
+</html>

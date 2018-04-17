@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+	<!-- <div ng-controller="myCtrl as ctrl">
+		
+		<h1 ng-repeat="a in ctrl.arr">{{ a }} </h1>
+
+	</div>
+ -->
+<div ng-controller="myCtrl">
+		<input type="text" name="filterValue" ng-model="filtVal">
+
+		<h1 ng-repeat="a in arr | filter:filtVal">{{ a }} </h1>
+		{{ filtVal }}
+	</div>
+
+
+	<div ng-controller="ctrl1">
+		<!-- <h1 ng-repeat="a in arr">{{ a }} </h1> -->
+		{{ name | uppercase }} <br>
+		{{ name1 | lowercase }} <br>
+		{{ num | number }} <br>
+		{{ num | currency : '&#8377;' }} <br>
+
+	</div>
+
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+
+		// app.controller('myCtrl',function(){
+		// 	this.arr = ['One','Two', 'Three'];
+		// });
+
+		app.controller('myCtrl',function($scope, $rootScope, $log){
+			$rootScope.arr = ['One','Two', 'Three'];
+			$log.info($rootScope.arr)
+			// $scope.filtVal = "O";
+		});
+
+
+
+
+		app.controller('ctrl1', function($scope){
+			$scope.name = "shiva";
+			$scope.name1 = "SHIVA";
+
+			$scope.num = 12312;
+		});
+	</script>
+</body>
+</html>

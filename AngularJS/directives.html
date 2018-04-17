@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+
+	<!-- comments, class, attribute, element -->
+
+	<my-template></my-template>
+	<div ng-controller="ctrl">
+		<input type="text" name="name" ng-model="name">
+		<div my-template></div>
+	</div>
+	
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+
+		app.directive('myTemplate', function(){
+			return {
+				restrict:"E",
+				// template:"<h1> This is my Custom {{ name }}....</h1>",
+				templateUrl:'temp.html'
+
+			}
+		});
+
+
+		app.controller('ctrl', ['$scope', function($scope){
+			$scope.name = 'directives'
+		}])
+	</script>
+</body>
+</html>

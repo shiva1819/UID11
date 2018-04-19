@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	<style type="text/css">
+		.green{
+			border:1px solid green !important;
+		}
+	</style>
+</head>
+<body ng-app="myApp">
+
+	<div class="container" ng-controller="ctrl">
+
+		<p class="mt-2">
+			<label for="order"> Order BY</label>
+			<input type="text" name="order" ng-model="order">
+			<small> fname | lname | handel </small>
+		</p>
+		<p>
+			<label for="filter"> Filter</label>
+			<input type="text" name="filter" ng-model="check">
+		</p>
+
+		<p>
+			<button ng-click="demo()">
+					Range
+			</button>
+			<h2> {{ num }}</h2>
+		</p>
+
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col" ng-click="orderfn(check)">First</th>
+		      <th scope="col">Last</th>
+		      <th scope="col">Handle</th>
+		      <th scope="col">Salary</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr ng-repeat="d in data | orderBy:ord | filter:filter">
+		      <th scope="row"> {{ count | number }} </th>
+		      <td>{{d.fname | uppercase }}</td>
+		      <td>{{d.lname}}</td>
+		      <td>{{d.handel}}</td>
+		      <td>{{d.salary}}</td>
+		    </tr>
+
+		    <!--  ng-if, ng-show/ng-hide, -->
+<!-- 		    <tr ng-repeat="d in data | removeRecords">
+		      <th scope="row"> {{ count | number }} </th>
+		      <td>{{d.fname | uppercase }}</td>
+		      <td>{{d.lname}}</td>
+		      <td>{{d.handel}}</td>
+		      <td ng-show="d.salary > 1000" class="green">{{d.salary}}</td>
+		    </tr>
+ -->
+		  </tbody>
+		</table>
+	</div>
+
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+
+
+		// custom filter.
+
+		app.filter('removeRecords', function(){
+
+			return function(r){
+				var arr = [];
+			for(var i = 0; i < r.length; i ++){
+				r[i].lname == "" ? "":arr.push(r[i]); 
+			}
+
+			return arr;
+		}
+
+
+
+
+		});
+
+
+
+
+
+
+
+			app.controller('ctrl', ['$scope', function($scope){
+				$scope.count = 1;
+				$scope.order = "fname";
+				$scope.filter = "";
+				$scope.num = 0;
+
+
+				$scope.demo = function(){
+					// alert();
+					$scope.num = $scope.count++
+				}
+
+
+				$scope.orderfn = function(orderName){
+					$scope.ord = orderName;
+				}
+
+				$scope.data = [
+								{ fname :"Mark", lname: 'Otto', handel:"@mdo", salary : 3000},
+								{ fname :"Jacob", lname: 'Thornton', handel:"@fat", salary : 1000},
+								{ fname :"Larry", lname: 'the Bird	', handel:"@twitter", salary : 1500},
+								{ fname :"Harry", lname: '', handel:"@twitter", salary : 1500}
+							  ]				
+			}]);
+
+
+
+	</script>
+</body>
+</html>

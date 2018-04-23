@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body ng-app="myApp">
+
+	<article ng-controller="setData" class="mt-5">
+		<article class="row">
+			<section class="col-md-4 offset-md-4">
+				<div class="input-group mb-3">
+				  <div class="input-group-prepend">
+				    <span class="input-group-text bg-info text-white" id="basic-addon1">Name</span>
+				  </div>
+				  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" ng-model="s">
+				  <div class="input-group-append">
+				    <button type="button" class="btn btn-info" ng-click="d()"> Add </button>
+				  </div>
+				</div>		
+			</section>
+		</article>
+		<button ng-click="g()"> get </button>
+	</article>
+
+<hr>
+
+	<article ng-controller="getData">
+		<ul class="list-unstyled pl-5">
+			<li ng-repeat="d in myd">
+				{{ d }}
+			</li>
+		</ul>
+	</article>
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+
+
+		app.service('dataInfo', function(){
+			var arr = [];
+			this.set = function(x){
+				arr.push(x);
+			};
+
+			this.get = function(){
+				return arr;
+			}
+		})
+
+		app.controller('setData', function($scope, dataInfo){
+			$scope.d = function(){
+				dataInfo.set($scope.s);
+				alert('Your data Recorded...');
+				$scope.s = "";
+			}
+
+			$scope.g = function(){
+				console.log(dataInfo.get());
+			}
+		});
+
+		app.controller('getData', function($scope, dataInfo){
+			$scope.myd = dataInfo.get();
+		});
+	</script>
+</body>
+</html>

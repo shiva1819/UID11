@@ -42,7 +42,7 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		    <tr ng-repeat="d in data | orderBy:ord | filter:filter">
+		    <tr ng-repeat="d in data | orderBy:ord | filter:filter" ng-class=" d.salary > 1000 ? 'red' : 'green'">
 		      <th scope="row"> {{ count | number }} </th>
 		      <td>{{d.fname | uppercase }}</td>
 		      <td>{{d.lname}}</td>
@@ -62,7 +62,6 @@
 		  </tbody>
 		</table>
 	</div>
-
 
 	<script type="text/javascript">
 		var app = angular.module('myApp', []);

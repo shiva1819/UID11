@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body ng-app="app">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			
+		
+	<form name="formData" action="https://getbootstrap.com/docs/4.0/utilities/colors/">
+	  <div class="form-group">
+	    <label for="exampleInputEmail1">Email address</label>
+	    <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" ng-model="name" name="name" required ng-minlength="5" ng-pattern="/^[a-zA-Z]/">
+
+	    <small id="emailHelp" class="form-text text-danger" ng-show="(formData.name.$dirty && formData.name.$invalid) || formData.name.pattern"> * Please enter a valid  name</small>
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputPassword1">Password</label>
+	    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" ng-model="password" required>
+	  </div>
+	  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+	</div>
+
+
+	<div>
+		{{ formData | json }}
+	</div>
+
+
+	<script type="text/javascript">
+		var app = angular.module('app', []);
+
+
+	</script>
+</body>
+</html>

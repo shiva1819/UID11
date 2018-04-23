@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body ng-app="myApp">
+
+	<div class="container" ng-controller="ctrl">
+		  
+        <ul>
+            <li ng-repeat= "x in data">
+                {{ x.name }}
+            </li>
+        </ul>  
+        
+        
+        
+	</div>
+
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+
+
+		app.controller('ctrl', ['$scope','$http','$location','$timeout', '$interval', function($scope, $http, $location, $timeout, $interval){
+			
+            console.log($location.absUrl());
+            console.log(window.location.href);
+            
+//            $interval(function(){      
+				$http.get('https://jsonplaceholder.typicode.com/users')
+				.then(function(res){
+					console.log(res.data);
+	                $scope.data = res.data;
+				})
+				.then(function(err){
+					console.log(err);
+				})
+//			},2000)
+		}])
+
+	</script>
+</body>
+</html>

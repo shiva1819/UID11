@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body ng-app="myApp">
+
+	<article ng-controller="ctrl">
+		
+        <ul>
+            <li ng-repeat="info in i">
+                {{ info.name }}
+            </li>
+        </ul>  
+        
+	</article>
+
+    <article ng-controller="ctrl1">
+		
+        <ul>
+            <li ng-repeat="info in i">
+                {{ info.phone }}
+            </li>
+        </ul>  
+        
+	</article>
+
+    
+    
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+        
+
+		app.service('Callhttp', function($http){
+			
+			this.aCall = function(cb){
+				$http({
+					method:"GET",
+					url:"https://jsonplaceholder.typicode.com/users"
+				})
+				.then(function(res){
+					cb(res.data);
+				});
+			}
+		});
+
+    
+        app.factory('fachttp', function($http){
+			var obj = {};
+			obj.aCall = function(cb){
+				$http({
+					method:"GET",
+					url:"https://jsonplaceholder.typicode.com/users"
+				})
+				.then(function(res){
+					cb(res.data);
+				});
+			}
+            return obj;
+		});
+
+		app.controller('ctrl', function($scope, fachttp){
+//			$scope.d = Callhttp.aCall("https://jsonplaceholder.typicode.com/users", function(data){
+//                $scope.i = data;
+//            });
+            
+            $scope.d = fachttp.aCall(function(data){
+                $scope.i = data;
+            });
+            
+		});
+		app.controller('ctrl1', function($scope, fachttp){
+//			$scope.d = Callhttp.aCall("https://jsonplaceholder.typicode.com/users", function(data){
+//                $scope.i = data;
+//            });
+            
+            $scope.d = fachttp.aCall(function(data){
+                $scope.i = data;
+            });
+            
+		})
+	</script>
+</body>
+</html>

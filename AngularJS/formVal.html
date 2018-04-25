@@ -13,7 +13,7 @@
 	<form name="formData" action="https://getbootstrap.com/docs/4.0/utilities/colors/">
 	  <div class="form-group">
 	    <label for="exampleInputEmail1">Email address</label>
-	    <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" ng-model="name" name="name" required ng-minlength="5" ng-pattern="/^[a-zA-Z]/">
+	    <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" ng-model="name" name="name" required ng-minlength="5" ng-pattern="/^[a-zA-Z]+$/">
 
 	    <small id="emailHelp" class="form-text text-danger" ng-show="(formData.name.$dirty && formData.name.$invalid) || formData.name.pattern"> * Please enter a valid  name</small>
 	  </div>
@@ -21,15 +21,15 @@
 	    <label for="exampleInputPassword1">Password</label>
 	    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" ng-model="password" required>
 	  </div>
-	  <button type="submit" class="btn btn-primary">Submit</button>
+	  <button type="submit" class="btn btn-primary" ng-disabled="formData.$invalid">Submit</button>
 	</form>
 </div>
 	</div>
 
 
-	<div>
+	<pre>
 		{{ formData | json }}
-	</div>
+	</pre>
 
 
 	<script type="text/javascript">

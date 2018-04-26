@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+</head>
+<body ng-app="app">
+	<div class="container" ng-controller="ctrl">
+		
+	<div class="row" >
+		<div class="col-md-6 offset-md-3">
+			
+		
+	<form name="formData">
+	  <div class="form-group">
+	    <label for="exampleInputEmail1">User Name</label>
+	    <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" ng-model="name" name="name" required ng-minlength="5" ng-pattern="namepattern">
+	    <small id="emailHelp" class="form-text text-danger" ng-show="(formData.name.$dirty && formData.name.$invalid) || formData.name.pattern"> * Please enter a valid  name</small>
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputEmail1">Contact Number</label>
+	    <input type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" ng-model="contact" name="contact" required  ng-minlength="10" ng-pattern="/^\d+$/">
+	    <small id="emailHelp" class="form-text text-danger" ng-show="(formData.contact.$dirty && formData.contact.$invalid) || formData.contact.pattern"> * Please enter a valid  Phone number</small>
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputEmail1">Email ID</label>
+	    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" ng-model="email" name="email" required ng-pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/">
+	    <small id="emailHelp" class="form-text text-danger" ng-show="(formData.email.$dirty && formData.email.$invalid) || formData.email.pattern"> * Please enter a valid  name</small>
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputPassword1">Password</label>
+	    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password" ng-model="password" required>
+	  </div>
+	  <button type="submit" class="btn btn-primary" ng-disabled="formData.$invalid" ng-click="getData()">Submit</button>
+	</form>
+</div>
+	</div>
+
+
+	
+        
+        <hr/>
+        
+        <table ng-init="sessionData">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Contact</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in sessionData">
+                    <td> {{x.name}} </td>
+                    <td> {{x.contact}} </td>
+                    <td> {{x.email}} </td>
+                    <td> {{x.password}} </td>
+                </tr>
+            </tbody>
+        </table>
+	</div>
+
+
+	<script type="text/javascript">
+		var app = angular.module('app', []);
+		app.controller('ctrl', ['$scope','$rootScope', function($scope,$rootScope){
+			$rootScope.namepattern = /^[a-zA-Z]+$/;
+
+
+			$scope.name = "";
+			$scope.contact = "";
+			$scope.email = "";
+			$scope.password = "";
+
+			$scope.arr = [];
+			 $scope.sessionData = JSON.parse(sessionStorage.getItem('arr')); 
+			$scope.getData = function(){
+
+				window.location.href = "http://localhost:2211/home";
+
+				$scope.obj = {name:$scope.name,contact:$scope.contact, email:$scope.email, password:$scope.password}
+				$scope.arr.push($scope.obj);
+				console.log($scope.arr);
+				$scope.data = $scope.arr;
+                sessionStorage.setItem('arr',JSON.stringify($scope.arr));
+                $scope.sessionData = JSON.parse(sessionStorage.getItem('arr')); 
+                console.log($scope.sessionData);
+
+			}
+		}])
+	</script>
+</body>
+</html>

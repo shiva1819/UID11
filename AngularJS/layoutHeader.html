@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			font-family: 'Titillium Web', sans-serif;
+		}
+		#header{
+			background: #3074ab;
+		}
+		#header .logo{
+			float: left;
+			width:20%;
+			color: #fff;
+			/*background: #ffeeee;*/
+			line-height: 40px;
+
+			text-align: center; /* left | right | center | justify */
+		}
+		#header #menu{
+			width:80%;
+			float: left;
+		}
+		#header #menu ul{
+			float: right;
+			list-style-type: none; /* cricle | round | sqaure | none*/	
+		}
+
+		#header #menu ul li{
+			width:100px;
+			border-right: 1px solid #fff;
+			line-height: 40px;
+			display: inline-block;
+			background-color: rgba(48,100,142,0.7);
+			text-align: center;
+		}
+		#header > #menu > ul >  li > a{
+			color:#fff;
+			text-decoration: none; /* underline, overline, linethrough, none*/
+		}
+
+
+
+
+		.clearfix{
+			clear: both;
+		}
+
+		/*
+		#logo ~ #menu {
+			background-color: red;
+		}*/
+		/* combinators , desendent selecter'space', >  child selector, + sibling selector, ~ sibling all selector */
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div class="logo">
+			<h2> LOGO </h2>
+		</div>	
+		<div id="menu">
+			<ul>
+				<li>
+					<a href="#"> HOME </a>
+				</li>
+				<li>
+					<a href="#"> ABOUT </a>
+				</li>
+				<li>
+					<a href="#"> GALLERY </a>
+				</li>
+				<li>
+					<a href="#"> SERVICES </a>
+				</li>
+				<li>
+					<a href="#"> CONTACT </a>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<h2 class="logo"> HEADING </h2>
+
+
+</body>
+</html>
